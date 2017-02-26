@@ -76,12 +76,30 @@ exports.arraysAnswers = {
     return total;
   },
 
+//finish later
   duplicates: function(arr) {
-    
+    let counter = {};
+    let results = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (counter[arr[i]]) {
+        counter[arr[i]] += 1;
+      } else {
+        counter[arr[i]] = 1;
+      };
+    };
+    let keyArr = Object.keys(counter);
+    for (var i = 0; i < keyArr.length; i++) {
+      if (counter[keyArr[i]] > 1) {
+        results.push(keyArr[i]);
+      };
+    };
+    return results;
   },
 
   square: function(arr) {
-
+    return arr.map(function(item) {
+      return item * item
+    });
   },
 
   findAllOccurrences: function(arr, target) {
